@@ -2,12 +2,14 @@
 .tags span{
     &[data-type] {
         background-color: $primary;
+        color: #000000;
     }
     &[data-type="globe-asia"] {
         background-color: #3740ff;
     }
     &[data-type="html5"] {
         background-color: #e34f26;
+        color: #000000;
     }
     &[data-type="js"] {
         background-color: #f7df1e;
@@ -15,15 +17,19 @@
     }
     &[data-type="css3"] {
         background-color: #0ebeff;
+        color: #000000;
     }
     &[data-type="android"] {
         background-color: #a4c639;
+        color: #000000;
     }
     &[data-type="java"] {
         background-color: #7f7f7f;
+        color: #000000;
     }
     &[data-type="python"] {
         background-color: #4584b6;
+        color: #000000;
     }
     
 }
