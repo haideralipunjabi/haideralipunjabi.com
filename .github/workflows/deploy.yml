@@ -16,11 +16,12 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm run build
-        with:
+      - name: 'Build'
+        env:
           COSMIC_BUCKET_SLUG: ${{ secrets.COSMIC_BUCKET_SLUG }}
           COSMIC_READ_KEY: ${{ secrets.COSMIC_READ_KEY }}
           GITHUB_API_KEY: ${{ secret.GITHUB_API_KEY }}
+        run: npm run build  
       - uses: jsmrcaga/action-netlify-deploy@master
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
