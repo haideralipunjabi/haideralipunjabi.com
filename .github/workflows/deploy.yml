@@ -1,0 +1,28 @@
+name: Deploy
+
+on:
+  push:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 */2 * * *'
+
+jobs:
+  deploy:
+    name: 'Deploy'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run build
+        with:
+          COSMIC_BUCKET_SLUG: ${{ secrets.COSMIC_BUCKET_SLUG }}
+          COSMIC_READ_KEY: ${{ secrets.COSMIC_READ_KEY }}
+          GITHUB_API_KEY: ${{ secret.GITHUB_API_KEY }}
+      - uses: jsmrcaga/action-netlify-deploy@master
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_TO_PROD: true

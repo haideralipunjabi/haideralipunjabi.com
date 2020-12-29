@@ -1,0 +1,29 @@
+@import "../styles/colors.scss";
+.tags span{
+    &[data-type] {
+        background-color: $primary;
+    }
+    &[data-type="globe-asia"] {
+        background-color: #3740ff;
+    }
+    &[data-type="html5"] {
+        background-color: #e34f26;
+    }
+    &[data-type="js"] {
+        background-color: #f7df1e;
+        color: #000000;
+    }
+    &[data-type="css3"] {
+        background-color: #0ebeff;
+    }
+    &[data-type="android"] {
+        background-color: #a4c639;
+    }
+    &[data-type="java"] {
+        background-color: #7f7f7f;
+    }
+    &[data-type="python"] {
+        background-color: #4584b6;
+    }
+    
+}

@@ -1,65 +1,45 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Navbar from "../components/navbar";
+import {getBlogData, getData, getGithubData} from "../lib/api";
+import Main from "../sections/main";
+import Projects from "../sections/projects";
+import Skills from "../sections/skills";
+import Blog from "../sections/blog";
+import Press from "../sections/press";
+import Footer from "../components/footer";
+import { useEffect, useState } from "react";
+export default function Home(props) {
+  const {socials,skills, projects, githubData,blogData,pressData} = props;
+  const [activeSection,setActiveSection] = useState(null);
 
-export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    <>
+    <Navbar active={activeSection}/>
+    <Main socials={socials}  navbarEvent={setActiveSection}/>
+    <Skills skills={skills}  navbarEvent={setActiveSection}/>
+    <Projects projects={projects} githubData={githubData} navbarEvent={setActiveSection}/>
+    <Blog blogData={blogData} navbarEvent={setActiveSection}/>
+    <Press pressData={pressData} navbarEvent={setActiveSection}/>
+    <Footer/>
+    </>
   )
+}
+
+export async function getStaticProps(context) {
+  const socials = (await getData("socials")) || []
+  const skills = (await getData("skills")) || []
+  const projects = (await getData("projects")) || []
+  const pressData = (await getData("inpress")) || []
+  const githubData = (await getGithubData()) || {}
+  const blogData = (await getBlogData()) || []
+
+  return {
+    props: {
+      socials,
+      skills,
+      projects,
+      githubData,
+      blogData,
+      pressData
+    }
+  }
 }
