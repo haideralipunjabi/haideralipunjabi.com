@@ -22,12 +22,11 @@ jobs:
           COSMIC_READ_KEY: ${{ secrets.COSMIC_READ_KEY }}
           GITHUB_API_KEY: ${{ secrets.GH_API_KEY }}
         run: npm run build  
-      - uses: jsmrcaga/action-netlify-deploy@master
+      - name: Deploy production to Netlify
+        uses: South-Paw/action-netlify-deploy@v1.0.4
         with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_TO_PROD: true
-          build_directory: 'out_publish'
-          functions_directory: 'out_functions'
-          build_command: ''
-          install_command: ''
+          github-token: ${{ secrets.GH_API_KEY }}
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          build-dir: 'out_publish'
+          functions-dir: 'out_functions'  
