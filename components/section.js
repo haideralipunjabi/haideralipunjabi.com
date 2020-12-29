@@ -5,7 +5,7 @@ export default function Section({title,children,id, noScroll, navbarEvent}){
     const ref = useRef();
     const isVisible = useOnScreen(ref);
     useEffect(()=>{
-        if(isVisible){
+        if(isVisible && navbarEvent){
             navbarEvent(id);   
         }
     },[isVisible])

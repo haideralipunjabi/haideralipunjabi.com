@@ -26,13 +26,16 @@ export default function Navbar({active}) {
       <div className="navbar-start">
         {
           Object.entries(LINKS).map(link=>
-            <a key={link[1]} alt={link[0]} href={`#${link[1]}`} className={cx("navbar-item",{highlight:(active===link[1])})}>
+            <a key={link[1]} alt={link[0]} href={`/#${link[1]}`} className={cx("navbar-item",{highlight:(active===link[1])})}>
               {link[0]}
             </a>
           )
         }
       </div>
       <div className="navbar-end">
+        <a href="/links" alt="Links" className="navbar-item">
+          Links
+        </a>
         <a href="mailto:me@haideralipunjabi.com" alt="Contact" target="_blank" rel="noopener noreferrer" className="navbar-item">
           Contact
         </a>

@@ -38,10 +38,23 @@ a {
   box-sizing: border-box;
 }
 
+.ellipse {
+  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 .is-fullheight {
   min-height: 100%;
+  height: 100%;
 }
 .hero.is-fullheight-with-navbar {
   margin-top: $navbar-height;
   scroll-margin-top: $navbar-height;
+}
+.navbar-margin-top {
+  margin-top: $navbar-height;
+  scroll-margin-top: $navbar-height;
+}
+.mt-a {
+  margin-top: auto;
 }
