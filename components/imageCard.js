@@ -16,7 +16,7 @@ export default function ImageCard({ data,unoptimized }) {
   return (
     <div className="card" style={{ height: "100%"}}>
     <div className="card-image">
-      <figure className="image is-fullwidth">
+      <figure className="image is-4by3">
         <img src={data.image||data.metadata.image} alt={data.name||data.title}/>
       </figure>
     </div>
