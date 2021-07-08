@@ -57,6 +57,8 @@ export default function Navbar({ active }) {
             href="https://poly.haideralipunjabi.com"
             target="_blank"
             rel="noopener noreferrer"
+            alt="Polywork"
+            className="navbar-item"
           >
             Polywork
           </a>
