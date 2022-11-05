@@ -10,16 +10,26 @@ const SUBTITLES = [
   "Undergrad Student",
 ];
 
-export default function Main({ socials,navbarEvent }) {
+export default function Main({ socials, navbarEvent }) {
   return (
     <Section id="home" navbarEvent={navbarEvent}>
       <div className="container is-flex is-flex-direction-column is-align-content-center is-justify-content-center">
         <figure className="image has-text-centered mb-2">
-        <picutre>
-                <source srcSet="/profile.webp" type="image/webp"/>
-                <source srcSet="/profile.png" type="image/png"/>
-                <img style={{width: "256px",height: "256px",marginRight: "auto",marginLeft: "auto"}} src="/profile.png" alt="Picture of Author" className="is-rounded"/>
-        </picutre>
+          <picutre>
+            <source srcSet="/profile.webp" type="image/webp" />
+            <source srcSet="/profile.png" type="image/png" />
+            <img
+              style={{
+                width: "256px",
+                height: "256px",
+                marginRight: "auto",
+                marginLeft: "auto",
+              }}
+              src="/profile.png"
+              alt="Picture of Author"
+              className="is-rounded"
+            />
+          </picutre>
         </figure>
         <h1 className="title is-size-1 has-text-centered">
           Haider Ali Punjabi
@@ -28,12 +38,12 @@ export default function Main({ socials,navbarEvent }) {
           Developer
         </h2>
         <div className="container is-flex is-flex-wrap-wrap	 is-justify-content-center ">
-          {socials.map((social,idx) => (
+          {socials.map((social, idx) => (
             <a
               href={social.metadata.link}
               alt={social.title}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer me"
               className="mx-4"
               key={idx}
             >
