@@ -29,4 +29,16 @@ jobs:
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
           build-dir: 'out_publish'
-          functions-dir: 'out_functions'  
+          functions-dir: 'out_functions'
+      - name: IPFS Pinata deploy GitHub action
+        uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
+        with:
+          path: 'out_publish'
+          pin-name: 'website'
+          pinata-api-key: ${{ secrets.PINATA_API_KEY }}
+          pinata-secret-api-key: ${{ secrets.PINATA_SECRET_KEY }}
+          remove-old: true
+          verbose: false
+        
+        
+
