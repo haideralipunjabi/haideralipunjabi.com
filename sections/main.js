@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Section from "../components/section";
-import TextLoop from "react-text-loop";
-
+import profileImg from "../public/profile.webp";
 const SUBTITLES = [
   "Developer",
   "Geek",
@@ -14,23 +13,13 @@ export default function Main({ socials, navbarEvent }) {
   return (
     <Section id="home" navbarEvent={navbarEvent}>
       <div className="container is-flex is-flex-direction-column is-align-content-center is-justify-content-center">
-        <figure className="image has-text-centered mb-2">
-          <picutre>
-            <source srcSet="/profile.webp" type="image/webp" />
-            <source srcSet="/profile.png" type="image/png" />
-            <img
-              style={{
-                width: "256px",
-                height: "256px",
-                marginRight: "auto",
-                marginLeft: "auto",
-              }}
-              src="/profile.png"
-              alt="Picture of Author"
-              className="is-rounded"
-            />
-          </picutre>
-        </figure>
+        <Image
+          className="mx-auto my-2"
+          style={{ borderRadius: "999px" }}
+          src={profileImg}
+          height={256}
+          width={256}
+        />
         <h1 className="title is-size-1 has-text-centered">
           Haider Ali Punjabi
         </h1>

@@ -20,47 +20,50 @@ const options = {
 };
 export default function ProjectCard({ project, className }) {
   return (
-    <div className="card" style={{ height: "100%" }}>
+    <div
+      className="card is-flex is-flex-direction-column	is-justify-content-space-between	"
+      style={{ height: "100%" }}
+    >
       <header className="card-header">
         <p className="card-header-title">{project.title}</p>
       </header>
       <div className="card-content">
         <div className="content" style={{ overflowWrap: "anywhere" }}>
           {parse(project.content, options)}
-          {/* <div className={classNames("tags mt-2",styles.tags)}>
-            {
-                project.metadata.tags.map(tag=>
-                    <span key={tag.icon.split(",")[1]} class="tag is-rounded has-text-weight-semibold" data-type={tag.icon.split(",")[1]}>
-                        <span className="icon"><FontAwesomeIcon icon={tag.icon.split(",")}/></span>
-                        <span>{tag.name}</span>
-                    </span>
-                )
-            }
-            </div> */}
-          <div className="is-flex is-justify-content-space-around is-flex-wrap-wrap">
-            {project.metadata.buttons.map((button) => (
-              <a
-                href={button.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button mb-2"
-                key={button.name}
-                atl={button.name}
+          <div className={classNames("tags mt-2", styles.tags)}>
+            {project.metadata.tags.map((tag) => (
+              <span
+                key={tag.icon.split(",")[1]}
+                class="tag is-rounded has-text-weight-semibold"
+                data-type={tag.icon.split(",")[1]}
               >
                 <span className="icon">
-                  <FontAwesomeIcon icon={button.icon.split(",")} />
+                  <FontAwesomeIcon icon={tag.icon.split(",")} />
                 </span>
-                <span>{button.name}</span>
-              </a>
+                <span>{tag.name}</span>
+              </span>
             ))}
           </div>
         </div>
       </div>
-      {/* <footer
-        className="card-footer"
-      >
-        
-      </footer> */}
+      <footer className="is-flex">
+        {project.metadata.buttons.map((button) => (
+          <a
+            href={button.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button is-fullwidth"
+            style={{ borderRadius: "0px" }}
+            key={button.name}
+            atl={button.name}
+          >
+            <span className="icon">
+              <FontAwesomeIcon icon={button.icon.split(",")} />
+            </span>
+            <span>{button.name}</span>
+          </a>
+        ))}
+      </footer>
     </div>
   );
 }

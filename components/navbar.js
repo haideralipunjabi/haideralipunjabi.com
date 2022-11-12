@@ -50,7 +50,11 @@ export default function Navbar({ active }) {
           ))}
         </div>
         <div className="navbar-end">
-          <a href="/links" alt="Links" className="navbar-item">
+          <a
+            href="https://bio.haideralipunjabi.com"
+            alt="Links"
+            className="navbar-item"
+          >
             Links
           </a>
           <a

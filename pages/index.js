@@ -34,9 +34,7 @@ export async function getStaticProps(context) {
   const projects = (await getData("projects")) || [];
   const pressData = (await getData("inpress")) || [];
   const githubData = (await getGithubData()) || {};
-  // const githubData = {};
   const blogData = (await getBlogData()) || [];
-
   return {
     props: {
       socials,
