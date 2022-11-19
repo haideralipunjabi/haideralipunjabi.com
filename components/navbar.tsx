@@ -24,7 +24,7 @@ export default function Navbar() {
         </NavbarList>
       </nav>
       <FontAwesomeIcon
-        className="md:hidden text-foreground-primary text-2xl absolute top-2 right-2 fa-solids fa-bars"
+        className="md:hidden text-foreground-primary text-2xl absolute top-2 right-2 fa-solids fa-bars z-20"
         onClick={() => {
           setIsOpen(!isOpen);
         }}
