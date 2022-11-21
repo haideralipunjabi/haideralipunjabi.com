@@ -24,7 +24,7 @@ export default function Navbar() {
         </NavbarList>
       </nav>
       <FontAwesomeIcon
-        className="md:hidden text-foreground-primary text-2xl absolute top-2 right-2 fa-solids fa-bars z-20"
+        className="md:hidden text-foreground-primary text-2xl absolute top-2 right-2 fa-solids fa-bars z-20 md:z-0"
         onClick={() => {
           setIsOpen(!isOpen);
         }}
@@ -52,13 +52,15 @@ function NavbarItem({
   const pathname = usePathname();
 
   return (
-    <li
-      className={
-        "p-4 hover:bg-accent-primary " +
-        (href === pathname ? "bg-accent-primary" : "")
-      }
-    >
-      <Link href={href}>{children}</Link>
-    </li>
+    <Link href={href}>
+      <li
+        className={
+          "p-4 hover:bg-accent-primary " +
+          (href === pathname ? "bg-accent-primary" : "")
+        }
+      >
+        {children}
+      </li>
+    </Link>
   );
 }
