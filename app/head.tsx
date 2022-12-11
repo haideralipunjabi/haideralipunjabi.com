@@ -24,6 +24,11 @@ export default function Head() {
       />
       <link rel="manifest" href="/manifest.json" />
       <meta name="viewport" content="width=device-width"></meta>
+      <script
+        data-goatcounter="https://haideralipunjabi.goatcounter.com/count"
+        async
+        src="https://gc.zgo.at/count.js"
+      ></script>
     </>
   );
 }
