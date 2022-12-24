@@ -24,7 +24,7 @@ function SkillIcon({ skill }: { skill: Skill }) {
   return (
     <div className="flex flex-col text-center w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 gap-y-4">
       <Icon
-        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
+        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl hover:scale-110 transition-transform duration-100"
         icon={skill.icon}
       />
       <span className="text-xl text-foreground-primary">{skill.name}</span>

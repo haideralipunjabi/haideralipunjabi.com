@@ -55,7 +55,7 @@ function SocialIcon({
       aria-label={name}
     >
       <Icon
-        className="text-accent-primary hover:text-accent-secondary text-4xl"
+        className="text-accent-primary text-4xl hover:scale-110 transition-transform duration-100"
         icon={icon}
       />
     </a>
