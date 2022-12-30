@@ -1,9 +1,12 @@
 import type { NextSeoProps } from "next-seo";
+const APP_DIR = process.env.APP_DIR == "true";
 let config = {
   title: "Haider Ali Punjabi",
   description:
     "Android / Web Apps developer, from Kashmir. Pursuing Integrated MCA from Cluster University Srinagar. Biscoe Pass Out(2017). ",
-  url: "https://haideralipunjabi.com",
+  url: APP_DIR
+    ? "https://haideralipunjabi.com"
+    : "https://haideralipunjabi.nft",
 };
 export const NEXT_SEO_DEFAULT: NextSeoProps = {
   title: config.title,
@@ -32,5 +35,5 @@ export const NEXT_SEO_DEFAULT: NextSeoProps = {
         alt: "OG Image",
       },
     ],
-  }
+  },
 };

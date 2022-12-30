@@ -1,6 +1,6 @@
 import Image from "next/image";
 import profile from "../public/profile.webp";
-import { Icon } from "../components/icon";
+import { Icon, SocialIcon } from "../components/icon";
 
 async function getData() {
   const res = await fetch(process.env.API_URL + "socials");
@@ -38,26 +38,3 @@ export default async function Page() {
   );
 }
 
-function SocialIcon({
-  link,
-  icon,
-  name,
-}: {
-  link: string;
-  icon: string;
-  name: string;
-}) {
-  return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer me"
-      aria-label={name}
-    >
-      <Icon
-        className="text-accent-primary text-4xl hover:scale-110 transition-transform duration-100"
-        icon={icon}
-      />
-    </a>
-  );
-}
