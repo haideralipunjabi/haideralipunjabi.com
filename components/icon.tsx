@@ -21,3 +21,27 @@ export function Icon({
 }) {
   return <FontAwesomeIcon className={className} icon={stringToIcon(icon)} />;
 }
+
+export function SocialIcon({
+  link,
+  icon,
+  name,
+}: {
+  link: string;
+  icon: string;
+  name: string;
+}) {
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer me"
+      aria-label={name}
+    >
+      <Icon
+        className="text-accent-primary text-4xl hover:scale-110 transition-transform duration-100"
+        icon={icon}
+      />
+    </a>
+  );
+}
