@@ -20,7 +20,7 @@ jobs:
       - name: IPFS Pinata deploy GitHub action
         uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
         with:
-          path: "out_publish"
+          path: "out"
           pin-name: "website"
           pinata-api-key: ${{ secrets.PINATA_API_KEY }}
           pinata-secret-api-key: ${{ secrets.PINATA_SECRET_KEY }}
