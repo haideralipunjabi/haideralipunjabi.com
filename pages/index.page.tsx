@@ -8,7 +8,7 @@ export default function Home({ socials }: { socials: Array<Social> }) {
     <main className="min-h-screen bg-background-secondary">
       <div className="flex flex-col justify-center items-center min-h-screen gap-y-1 sm:gap-y-2 md:gap-y-3 lg:gap-y-4 text-foreground-primary w-max mx-auto">
         <Image
-          className="rounded-full border border-4 border-accent-primary"
+          className="rounded-full border border-4 border-accent-primary w-1/2 sm:w-2/3 md:w-3/4 lg:w-full"
           src={profile}
           alt="Profile Image"
         />

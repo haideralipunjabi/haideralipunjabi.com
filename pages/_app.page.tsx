@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width"></meta>
       </Head>
       <DefaultSeo {...NEXT_SEO_DEFAULT} />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }
