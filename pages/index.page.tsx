@@ -1,14 +1,13 @@
 import Image from "next/image";
 import profile from "../public/profile.webp";
 import { SocialIcon } from "../components/icon";
-import { GetStaticPropsContext } from "next";
 
 export default function Home({ socials }: { socials: Array<Social> }) {
   return (
     <main className="min-h-screen bg-background-secondary">
-      <div className="flex flex-col justify-center items-center min-h-screen gap-y-1 sm:gap-y-2 md:gap-y-3 lg:gap-y-4 text-foreground-primary w-max mx-auto">
+      <div className="mx-auto flex min-h-screen w-max flex-col items-center justify-center gap-y-1 text-foreground-primary sm:gap-y-2 md:gap-y-3 lg:gap-y-4">
         <Image
-          className="rounded-full border border-4 border-accent-primary w-1/2 sm:w-2/3 md:w-3/4 lg:w-full"
+          className="w-1/2 rounded-full border-4 border-accent-primary sm:w-2/3 md:w-3/4 lg:w-full"
           src={profile}
           alt="Profile Image"
         />
@@ -19,7 +18,7 @@ export default function Home({ socials }: { socials: Array<Social> }) {
           {" "}
           Software Developer
         </h2>
-        <div className="flex justify-around w-full text-2xl">
+        <div className="flex w-full justify-around text-2xl">
           {socials.map((social, idx) => (
             <SocialIcon
               key={idx}
@@ -34,7 +33,7 @@ export default function Home({ socials }: { socials: Array<Social> }) {
   );
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getStaticProps() {
   const res = await fetch(process.env.API_URL + "socials");
   const data = await res.json();
 

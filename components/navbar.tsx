@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
@@ -24,7 +24,7 @@ export default function Navbar() {
         </NavbarList>
       </nav>
       <FontAwesomeIcon
-        className="md:hidden text-foreground-primary text-2xl absolute top-2 right-2 fa-solids fa-bars z-20 md:z-0"
+        className="fa-solids fa-bars absolute top-2 right-2 z-20 text-2xl text-foreground-primary md:z-0 md:hidden"
         onClick={() => {
           setIsOpen(!isOpen);
         }}
@@ -36,7 +36,7 @@ export default function Navbar() {
 
 function NavbarList({ children }: { children: React.ReactNode }) {
   return (
-    <ul className="flex flex-col md:flex-row mt-10 md:mt-0 relative">
+    <ul className="relative mt-10 flex flex-col md:mt-0 md:flex-row">
       {children}
     </ul>
   );

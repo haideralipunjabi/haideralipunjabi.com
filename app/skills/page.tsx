@@ -9,9 +9,9 @@ export default async function Page() {
   const skills: Array<Skill> = await getData();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-foreground-primary">
-      <h1 className="text-4xl md:text-5xl lg:text-6xl my-8 lg:my-24">Skills</h1>
-      <div className="flex justify-center gap-y-24 items-center text-accent-primary flex-wrap mx-auto mb-24 w-8/12">
+    <div className="flex min-h-screen flex-col items-center justify-center text-foreground-primary">
+      <h1 className="my-8 text-4xl md:text-5xl lg:my-24 lg:text-6xl">Skills</h1>
+      <div className="mx-auto mb-24 flex w-8/12 flex-wrap items-center justify-center gap-y-24 text-accent-primary">
         {skills.map((skill, idx) => (
           <SkillIcon key={idx} skill={skill} />
         ))}
@@ -22,9 +22,9 @@ export default async function Page() {
 
 function SkillIcon({ skill }: { skill: Skill }) {
   return (
-    <div className="flex flex-col text-center w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 gap-y-4">
+    <div className="flex w-1/2 flex-col gap-y-4 text-center sm:w-1/3 md:w-1/4 lg:w-1/5">
       <Icon
-        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl hover:scale-110 transition-transform duration-100"
+        className="text-5xl transition-transform duration-100 hover:scale-110 sm:text-6xl md:text-7xl lg:text-8xl"
         icon={skill.icon}
       />
       <span className="text-xl text-foreground-primary">{skill.name}</span>

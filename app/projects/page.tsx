@@ -1,21 +1,19 @@
 import { Icon } from "../../components/icon";
 import Image from "next/image";
-import fs from "fs";
-import client from "http";
 import { download } from "../../lib/download";
 import error from "../../public/error.png";
 async function getData() {
   const res = await fetch(process.env.API_URL + "projects");
-  let data: Array<Project> = await res.json();
-  for (let i in data) {
-    let project = data[i];
+  const data: Array<Project> = await res.json();
+  for (const i in data) {
+    const project = data[i];
     if (project.image == null) {
       continue;
     }
-    let filename =
+    const filename =
       Buffer.from(project.name).toString("base64").slice(0, 5) +
       project.image.replace("/media/", "");
-    let outfile = "/project_images/" + filename;
+    const outfile = "/project_images/" + filename;
     await download(
       process.env.API_URL + project.image.slice(1),
       process.cwd() + "/public" + outfile
@@ -28,8 +26,8 @@ async function getData() {
 export default async function Page() {
   const projects: Array<Project> = await getData();
   return (
-    <div className="flex flex-col items-center justify-center text-foreground-primary py-24">
-      <h1 className="text-4xl md:text-5xl lg:text-6xl my-8 lg:my-24">
+    <div className="flex flex-col items-center justify-center py-24 text-foreground-primary">
+      <h1 className="my-8 text-4xl md:text-5xl lg:my-24 lg:text-6xl">
         Projects
       </h1>
       <div className="w-8/12">
@@ -43,8 +41,8 @@ export default async function Page() {
 
 function ProjectEntry({ project }: { project: Project }) {
   return (
-    <div className="flex flex-col xl:flex-row my-8">
-      <div className="h-48 w-full xl:w-1/6 relative rounded-3xl">
+    <div className="my-8 flex flex-col xl:flex-row">
+      <div className="relative h-48 w-full rounded-3xl xl:w-1/6">
         {project.image ? (
           <Image
             className="rounded-3xl"
@@ -63,17 +61,17 @@ function ProjectEntry({ project }: { project: Project }) {
           />
         )}
       </div>
-      <div className="p-4 w-full lg:w-5/6">
+      <div className="w-full p-4 lg:w-5/6">
         <h2 className="text-2xl">
           {project.name} | {project.date}
         </h2>
         <p className="text-justify">{project.description}</p>
-        <div className="flex gap-2 flex-wrap my-6">
+        <div className="my-6 flex flex-wrap gap-2">
           {project.tags.map((tag, idx) => (
             <Tag key={idx} tag={tag.tag} />
           ))}
         </div>
-        <div className="flex gap-2 flex-wrap my-6">
+        <div className="my-6 flex flex-wrap gap-2">
           {project.buttons.map((button, idx) => (
             <Button key={idx} button={button} />
           ))}
@@ -85,7 +83,7 @@ function ProjectEntry({ project }: { project: Project }) {
 
 function Tag({ tag }: { tag: Tag }) {
   return (
-    <span className="rounded-full bg-accent-primary text-foreground px-6 py-2 h-9 flex items-center">
+    <span className="text-foreground flex h-9 items-center rounded-full bg-accent-primary px-6 py-2">
       <span className="mr-2">
         <Icon icon={tag.icon} />
       </span>
@@ -98,7 +96,7 @@ function Button({ button }: { button: ProjectButton }) {
   return (
     <a
       href={button.link}
-      className="px-6 py-2 bg-accent-primary hover:bg-accent-secondary text-foreground text-center rounded-xl"
+      className="text-foreground rounded-xl bg-accent-primary px-6 py-2 text-center hover:bg-accent-secondary"
     >
       <span className="mr-2">
         <Icon icon={button.button.icon} />
