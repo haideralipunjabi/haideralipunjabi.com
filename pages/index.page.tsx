@@ -7,7 +7,7 @@ export default function Home({ socials }: { socials: Array<Social> }) {
     <main className="min-h-screen bg-background-secondary">
       <div className="mx-auto flex min-h-screen w-max flex-col items-center justify-center gap-y-1 text-foreground-primary sm:gap-y-2 md:gap-y-3 lg:gap-y-4">
         <Image
-          className="w-1/2 rounded-full border-4 border-accent-primary sm:w-2/3 md:w-3/4 lg:w-full"
+          className="w-1/3 rounded-full border-4 border-accent-primary sm:w-2/3 md:w-3/4 lg:w-full"
           src={profile}
           alt="Profile Image"
         />
@@ -18,7 +18,7 @@ export default function Home({ socials }: { socials: Array<Social> }) {
           {" "}
           Software Developer
         </h2>
-        <div className="flex w-full justify-around text-2xl">
+        <div className="my-3 grid w-max grid-cols-3 flex-wrap justify-around gap-y-6">
           {socials.map((social, idx) => (
             <SocialIcon
               key={idx}

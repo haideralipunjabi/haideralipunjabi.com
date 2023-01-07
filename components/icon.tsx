@@ -36,9 +36,10 @@ export function SocialIcon({
       target="_blank"
       rel="noopener noreferrer me"
       aria-label={name}
+      className="mx-6 w-max text-3xl  md:text-4xl"
     >
       <Icon
-        className="text-4xl text-accent-primary transition-transform duration-100 hover:scale-110"
+        className="text-accent-primary transition-transform duration-100 hover:scale-110"
         icon={icon}
       />
     </a>
