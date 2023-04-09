@@ -1,14 +1,18 @@
 /** @type {import('next').NextConfig} */
-const APP_DIR = process.env.APP_DIR == "true";
-module.exports = {
+const STATIC_BUILD = process.env.STATIC_BUILD == "true";
+
+const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: APP_DIR
-    ? ["jsx", "js", "tsx", "ts"]
-    : ["page.tsx", "page.ts", "page.jsx", "page.js"],
-  images: {
-    unoptimized: !APP_DIR,
-  },
+  pageExtensions: ["jsx", "js", "tsx", "ts"],
   experimental: {
-    appDir: APP_DIR,
-  },
+    appDir: true,
+  }
 };
+if(STATIC_BUILD) {
+  nextConfig["output"] = "export";
+  nextConfig["images"] = {
+    loader: 'custom',
+    loaderFile: './lib/image.ts',
+  }
+}
+module.exports = nextConfig;

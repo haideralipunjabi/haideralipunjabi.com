@@ -1,12 +1,9 @@
 import type { NextSeoProps } from "next-seo";
-const APP_DIR = process.env.APP_DIR == "true";
-let config = {
+const config = {
   title: "Haider Ali Punjabi",
   description:
     "Android / Web Apps developer, from Kashmir. Pursuing Integrated MCA from Cluster University Srinagar. Biscoe Pass Out(2017). ",
-  url: APP_DIR
-    ? "https://haideralipunjabi.com"
-    : "https://haideralipunjabi.nft",
+  url: "https://haideralipunjabi.com"
 };
 export const NEXT_SEO_DEFAULT: NextSeoProps = {
   title: config.title,
