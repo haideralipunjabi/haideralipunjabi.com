@@ -1,7 +1,3 @@
-export default function imageLoader({
-    src,
-  }: {
-    src: string;
-  }) {
-    return `${src}`;
-  }
+export default function imageLoader({ src }: { src: string }) {
+  return `${src}`;
+}
