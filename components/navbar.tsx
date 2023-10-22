@@ -21,6 +21,8 @@ export default function Navbar() {
           <NavbarItem href="/skills">Skills</NavbarItem>
           <NavbarItem href="/projects">Projects</NavbarItem>
           <NavbarItem href="/press">Press</NavbarItem>
+          <NavbarItem href="https://blog.haideralipunjabi.com">Blog</NavbarItem>
+
         </NavbarList>
       </nav>
       <FontAwesomeIcon
@@ -50,9 +52,9 @@ function NavbarItem({
   href: string;
 }) {
   const pathname = usePathname();
-
+  const externalLink = href.startsWith("http");
   return (
-    <Link href={href}>
+    <Link href={href} target={externalLink ? "_blank" : "_self"} rel={externalLink ? "noopener noreferrer" : ""}>
       <li
         className={
           "p-4 hover:bg-accent-primary " +
