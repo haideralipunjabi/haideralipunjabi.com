@@ -24,13 +24,21 @@ export default function ClawWebring({ members }: { members: Array<Member> }) {
     // For testing purposes in development
     if (IS_DEV) {
         members.push({
-            url: "http://localhost:3000/",
+            url: "http://localhost:3001/",
             name: "Testing in Dev",
             feed: null,
         });
     }
+
     const thisMember = members.find((member) => member.url.includes(hostname));
     const thisMemberIndex = members.findIndex((item) => item === thisMember);
+    if (thisMemberIndex === -1 && !IS_DEV) {
+        console.log("%cOh hai!", "font-size: 20px");
+        console.log(
+            "You are trying to use The Claw Webring Widget on a site that has not been added to the Webring. Or you might just be trying to view it on a preview deployment URL, or on a development URL that is not localhost. Either way, the code stops working from here.",
+        );
+        return <></>;
+    }
     const prevIndex = thisMemberIndex === 0 ? members.length - 1 : thisMemberIndex - 1;
     const nextIndex = thisMemberIndex === members.length - 1 ? 0 : thisMemberIndex + 1;
 
