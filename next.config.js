@@ -4,9 +4,6 @@ const STATIC_BUILD = process.env.STATIC_BUILD == "true";
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["jsx", "js", "tsx", "ts"],
-  experimental: {
-    appDir: true,
-  }
 };
 if(STATIC_BUILD) {
   nextConfig["output"] = "export";
