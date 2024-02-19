@@ -52,3 +52,9 @@ interface Press {
   site: string;
   image: string;
 }
+
+interface Member {
+  name: string;
+  feed: string | null;
+  url: string;
+}
