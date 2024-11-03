@@ -7,10 +7,9 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Footer from "../components/footer";
-import { faLenster } from "../components/custom_icons/lenster";
 config.autoAddCss = false;
 
-library.add(fas, fab, far, faLenster);
+library.add(fas, fab, far);
 
 export default function RootLayout({
   children,

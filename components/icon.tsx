@@ -4,6 +4,7 @@ import {
   IconProp,
 } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classNames from "classnames";
 function stringToIcon(iconString: string): IconProp {
   const [prefix, name] = iconString.split(" ");
   const iconName = name.slice(3);
@@ -25,10 +26,12 @@ export function SocialIcon({
   link,
   icon,
   name,
+  className,
 }: {
   link: string;
   icon: string;
   name: string;
+  className?: string;
 }) {
   return (
     <a
@@ -36,7 +39,7 @@ export function SocialIcon({
       target="_blank"
       rel="noopener noreferrer me"
       aria-label={name}
-      className="mx-6 w-max text-3xl  md:text-4xl"
+      className={classNames("w-max text-center text-3xl  md:text-4xl", className)}
     >
       <Icon
         className="text-accent-primary transition-transform duration-100 hover:scale-110"

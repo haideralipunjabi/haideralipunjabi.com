@@ -33,13 +33,14 @@ export default async function Page() {
           Software Developer
         </h2>
       </div>
-      <div className="my-3 grid w-max grid-cols-3 flex-wrap justify-around gap-y-3">
+      <div className="my-3 flex flex-row flex-wrap justify-center justify-items-center gap-y-3">
         {socials.map((social, idx) => (
           <SocialIcon
             key={idx}
             icon={social.icon}
             link={social.link}
             name={social.name}
+            className="basis-1/3"
           />
         ))}
       </div>
